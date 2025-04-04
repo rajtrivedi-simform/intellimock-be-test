@@ -1,6 +1,6 @@
 import prisma from "../../configs/db";
+import argon2 from "argon2";
 import { v4 as uuid } from "uuid";
-import bcrypt from "bcrypt";
 
 export const userCreation = async (
   userEmail: string,
@@ -14,21 +14,17 @@ export const userCreation = async (
       data: {
         id: uuid(),
         userEmail: userEmail,
-        userPassword: userPassword,
+        userPassword: hashedPassword,
         userFullName: userFullName,
       },
     });
 
     return userInstance;
   } catch (error) {
-    return "Error Creating User";
+    throw new Error("Error creating user!!");
   }
 };
 
 const generateHashPassword = async (password: string) => {
-  let saltRounds: number = 10;
-  const salt = await bcrypt.genSalt(saltRounds);
-  const hashedPassword = await bcrypt.hash(password, salt);
-
-  return hashedPassword;
+  return await argon2.hash(password, { type: argon2.argon2i });
 };

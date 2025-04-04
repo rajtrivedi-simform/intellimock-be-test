@@ -9,6 +9,7 @@ export const apiResponseHandler = (
 ) => {
   return res.status(status).json({
     success: status < 400,
+    status: status,
     msg: msg,
     data: data || null,
   } as apiResponse);

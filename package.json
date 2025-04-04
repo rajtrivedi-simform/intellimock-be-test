@@ -11,10 +11,11 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.5.0",
-    "bcrypt": "^5.1.1",
+    "argon2": "^0.41.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
+    "express-async-handler": "^1.2.0",
     "express-session": "^1.18.1",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
@@ -22,10 +23,11 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
+    "@types/argon2": "^0.14.1",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/express-session": "^1.18.1",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.14.0",
     "prisma": "^6.5.0",
